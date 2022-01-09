@@ -110,7 +110,8 @@ public class Login {
         button.addActionListener(e -> {
             try {
 //                handleLogin(textField,jPasswordField);
-                System.out.println("You logged in successfully");
+                /*Handle login*/
+                new Dashboard();
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
