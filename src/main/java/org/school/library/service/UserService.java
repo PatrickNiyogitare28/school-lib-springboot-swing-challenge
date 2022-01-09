@@ -16,7 +16,7 @@ public class UserService {
 
     public APICustomResponse login(LoginDto dto){
         User user = userRepository.findByEmail(dto.getEmail());
-        if(user == null)
+        if(user == null || user.getPassword() != dto.getPassword())
             return new APICustomResponse(false, "Unauthorized access");
         return new APICustomResponse(true, "Successfully logged in");
     }
