@@ -1,16 +1,20 @@
 package org.school.library.domain;
 
+import org.school.library.enums.EClientCategory;
 import org.school.library.enums.EGender;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.UUID;
 
 @Entity
 public class Client {
     @Id
     @GeneratedValue
-    private long id;
+    @Column(name = "regId")
+    private UUID id;
 
     private String firstName;
 
@@ -18,35 +22,30 @@ public class Client {
 
     private String phone;
 
-    private EGender gender;
+    private String email;
 
-    private long category;
+    private EClientCategory category;
+
+    private Byte photo;
 
     public Client() {
     }
 
-    public Client(long id, String firstName, String lastName, String phone, EGender gender, Long category) {
+    public Client(UUID id, String firstName, String lastName, String phone, String email, EClientCategory category, Byte photo) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
-        this.gender = gender;
+        this.email = email;
         this.category = category;
+        this.photo = photo;
     }
 
-    public Client(String firstName, String lastName, String phone, EGender gender, Long category) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = phone;
-        this.gender = gender;
-        this.category = category;
-    }
-
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -74,19 +73,27 @@ public class Client {
         this.phone = phone;
     }
 
-    public EGender getGender() {
-        return gender;
+    public String getEmail() {
+        return email;
     }
 
-    public void setGender(EGender gender) {
-        this.gender = gender;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public long getCategory() {
+    public EClientCategory getCategory() {
         return category;
     }
 
-    public void setCategory(long category) {
+    public void setCategory(EClientCategory category) {
         this.category = category;
+    }
+
+    public Byte getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(Byte photo) {
+        this.photo = photo;
     }
 }
