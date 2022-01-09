@@ -1,8 +1,10 @@
 package org.school.library.views;
 
+import org.school.library.LibraryApplication;
 import org.school.library.ui.components.buttons.RoundJButton;
 import org.school.library.ui.components.buttons.RoundJPasswordField;
 import org.school.library.ui.components.buttons.RoundJTextField;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.swing.*;
@@ -16,6 +18,9 @@ import java.awt.*;
 public class Login {
   private JFrame mainFrame;
 
+    public static void main(String[] args) {
+        new Login();
+    }
   public Login() {
        mainFrame = new JFrame("SIGN IN");
        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
