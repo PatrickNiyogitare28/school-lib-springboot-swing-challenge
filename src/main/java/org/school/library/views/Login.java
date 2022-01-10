@@ -116,6 +116,7 @@ public class Login {
             try {
 //                handleLogin(textField,jPasswordField);
                 /*Handle login*/
+                mainFrame.setVisible(false);
                 new Dashboard();
             } catch (Exception exception) {
                 exception.printStackTrace();
