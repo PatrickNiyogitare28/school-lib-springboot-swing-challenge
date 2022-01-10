@@ -43,7 +43,7 @@ This is mainly  used for academic or learning purpose.
 
 
 ## Contributing
-Pull request are very welcomed but please first go through our CODE_OF_CONDUCT
+Pull request are very welcomed but please first go through our [CODE_OF_CONDUCT](https://github.com/PatrickNiyogitare28/school-lib-springboot-swing-challenge/blob/master/CODE_OF_CONDUCT.md)
 
 ## Authors and acknowledgment
 patrickniyogitare28@gmail.com
