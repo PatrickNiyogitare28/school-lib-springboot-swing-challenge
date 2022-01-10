@@ -1,10 +1,13 @@
 package org.school.library.views;
 
+import org.school.library.ui.components.Menu;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Dashboard {
     private JFrame mainFrame;
+    JMenuBar mb;
 
     public Dashboard(){
         mainFrame = new JFrame("DASHBOARD");
@@ -17,22 +20,10 @@ public class Dashboard {
     }
 
     public void renderUI(){
-        JMenu menu = new JMenu();
-        JMenuBar menuBar = new JMenuBar();
-        JMenuItem clients = new JMenuItem("CLIENTS");
-        JMenuItem books = new JMenuItem("BOOKS");
-        JMenuItem operations = new JMenuItem("OPERATIONS");
-
-        menuBar.add(clients);
-        menuBar.add(books);
-        menuBar.add(operations);
-
-        menu.add(menuBar);
-
-        JPanel navPanel = new JPanel();
-//        navPanel.setBounds(10, 10, 300, 50);
-        navPanel.add(menu);
-        mainFrame.add(navPanel);
+        Container cp = mainFrame.getContentPane();
+        cp.setLayout(new FlowLayout());
+        mb= new JMenuBar();
+        mainFrame.setJMenuBar(new Menu().renderMenu());
         mainFrame.setVisible(true);
     }
 }
