@@ -1,6 +1,7 @@
 package org.school.library.views;
 
 import org.school.library.ui.components.Menu;
+import org.school.library.ui.components.tables.ClientsTable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,6 +25,10 @@ public class Dashboard {
         cp.setLayout(new FlowLayout());
         mb= new JMenuBar();
         mainFrame.setJMenuBar(new Menu().renderMenu());
+
+        JScrollPane table =  new ClientsTable().studentsTable();
+        mainFrame.add(table);
+
         mainFrame.setVisible(true);
     }
 }
