@@ -10,7 +10,7 @@ public ClientsTable(){
         String data[][]={
                 {"001","Eric","Mucyo"},
                 {"002","John","Doe"},
-                {"103","Mutoni","Diane"},
+                {"003","Mutoni","Diane"},
         };
         String column[]={"ID","FIRST STAFF NAME","LAST STAFF NAME"};
         JTable jt=new JTable(data,column);
