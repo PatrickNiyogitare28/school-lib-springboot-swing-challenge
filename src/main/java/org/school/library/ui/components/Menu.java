@@ -2,9 +2,12 @@ package org.school.library.ui.components;
 
 
 //from w  w w. j  ava 2  s  .  c o  m
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
+import org.school.library.ui.components.tables.BooksTable;
+import org.school.library.ui.components.tables.ClientsTable;
+import org.school.library.ui.components.tables.TransactionsTable;
+import org.school.library.views.Dashboard;
+
+import javax.swing.*;
 
 public class Menu {
     JMenuBar mb;
@@ -13,9 +16,9 @@ public class Menu {
 
     JMenu opSubm, cCatSubm, bSubm; // Options Sub-Menu
 
-    JMenuItem mi, cmi, bmi, bCatmi, newTransactionMi, transactionsListMi;
+    JMenuItem mi, cmi, bmi, bCatmi, newTransactionMi, transactionsListMi, staffMi, stdsMi;
 
-    public JMenuBar renderMenu() {
+    public JMenuBar renderMenu(JFrame closableFrame) {
 //        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        Container cp = getContentPane();
 //        cp.setLayout(new FlowLayout());
@@ -35,14 +38,55 @@ public class Menu {
 
         cmi = new JMenuItem("Client");
         cCatSubm = new JMenu("Client Categories");
-        cCatSubm.add(mi = new JMenuItem("STAFF"));
-        cCatSubm.add(mi = new JMenuItem("STUDENTS"));
+
+        staffMi = new JMenuItem("STAFF");
+        stdsMi = new JMenuItem("STUDENTS");
+
+        cCatSubm.add(staffMi);
+        cCatSubm.add(stdsMi);
 
         bmi= new JMenuItem("Book");
         bCatmi = new JMenuItem("Book Categories");
 
         newTransactionMi = new JMenuItem("New Transaction");
         transactionsListMi = new JMenuItem("Transactions");
+
+        /*Handling actions*/
+        staffMi.addActionListener(e->{
+            closableFrame.dispose();
+            try {
+              new Dashboard(new ClientsTable().renderStaffTable());
+            } catch (Exception ioException) {
+                ioException.printStackTrace();
+            }
+        });
+
+        stdsMi.addActionListener(e->{
+            closableFrame.dispose();
+            try {
+                new Dashboard(new ClientsTable().renderStudentsTable());
+            } catch (Exception ioException) {
+                ioException.printStackTrace();
+            }
+        });
+
+        bCatmi.addActionListener(e->{
+            closableFrame.dispose();
+            try {
+                new Dashboard(new BooksTable().renderTable());
+            } catch (Exception ioException) {
+                ioException.printStackTrace();
+            }
+        });
+
+        transactionsListMi.addActionListener(e->{
+            closableFrame.dispose();
+            try {
+                new Dashboard(new TransactionsTable().renderTransactions());
+            } catch (Exception ioException) {
+                ioException.printStackTrace();
+            }
+        });
 
         om.add(newTransactionMi);
         om.add(transactionsListMi);

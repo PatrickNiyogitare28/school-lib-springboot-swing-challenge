@@ -4,24 +4,28 @@ import javax.swing.*;
 public class ClientsTable {
 //    JFrame f;
 public ClientsTable(){
-//        f=new JFrame();
+ }
 
-//        f.add(sp);
-//        f.setSize(300,400);
-//        f.setVisible(true);
-    }
-    public JScrollPane staffsTable(){
-        return getjScrollPane();
-    }
-    public JScrollPane studentsTable(){
-        return getjScrollPane();
+    public JScrollPane renderStaffTable() {
+        String data[][]={
+                {"001","Eric","Mucyo"},
+                {"002","John","Doe"},
+                {"103","Mutoni","Diane"},
+        };
+        String column[]={"ID","FIRST STAFF NAME","LAST STAFF NAME"};
+        JTable jt=new JTable(data,column);
+        jt.setBounds(30,40,200,300);
+        JScrollPane sp=new JScrollPane(jt);
+        return sp;
     }
 
-    private JScrollPane getjScrollPane() {
-        String data[][]={ {"101","Amit","670000"},
-                {"102","Jai","780000"},
-                {"101","Sachin","700000"}};
-        String column[]={"ID","NAME","SALARY"};
+    public JScrollPane renderStudentsTable() {
+        String data[][]={
+                {"001","Noel","Aline Mulenzi"},
+                {"002","Deric","Mutabazi"},
+                {"103","Ngabo","David"},
+        };
+        String column[]={"ID","FIRST STUDENT NAME","LAST STUDENT NAME"};
         JTable jt=new JTable(data,column);
         jt.setBounds(30,40,200,300);
         JScrollPane sp=new JScrollPane(jt);
