@@ -4,6 +4,7 @@ import org.school.library.LibraryApplication;
 import org.school.library.ui.components.buttons.RoundJButton;
 import org.school.library.ui.components.buttons.RoundJPasswordField;
 import org.school.library.ui.components.buttons.RoundJTextField;
+import org.school.library.ui.components.tables.ClientsTable;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -117,7 +118,7 @@ public class Login {
 //                handleLogin(textField,jPasswordField);
                 /*Handle login*/
                 mainFrame.setVisible(false);
-                new Dashboard();
+                new Dashboard(new ClientsTable().renderStaffTable());
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
